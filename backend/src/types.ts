@@ -1,4 +1,4 @@
-import { type GetBucketAclCommandOutput, type S3Client } from '@aws-sdk/client-s3';
+import { type ObjectCannedACL, type GetBucketAclCommandOutput, type S3Client, type StorageClass } from '@aws-sdk/client-s3';
 
 export type S3ClientType = S3Client;
 
@@ -137,4 +137,18 @@ export interface DeleteFolderProps extends MinimalBucketProps {
 
 export interface SingleObjectProps extends MinimalBucketProps {
   objectKey: string
+}
+
+export interface MoveObjectProps extends MinimalBucketProps {
+  objectKeys: string[]
+  destination: string
+  batchSize?: number
+}
+
+export interface SetObjectAclProps extends SingleObjectProps {
+  Acl: ObjectCannedACL
+}
+
+export interface UpdateStorageClassProps extends SingleObjectProps {
+  newStorageClass: StorageClass
 }

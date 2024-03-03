@@ -1,4 +1,4 @@
-import { type ListObjectsCommandOutput, ListObjectsV2Command, PutObjectCommand, type PutObjectCommandOutput, type _Object, DeleteObjectsCommand, DeleteObjectCommand, GetObjectAclCommand, type GetObjectAclCommandOutput } from '@aws-sdk/client-s3';
+import { type ListObjectsCommandOutput, ListObjectsV2Command, PutObjectCommand, type PutObjectCommandOutput, type _Object, DeleteObjectsCommand, DeleteObjectCommand, GetObjectAclCommand, type GetObjectAclCommandOutput, PutObjectAclCommand, type ObjectCannedACL, type PutObjectAclCommandOutput, type StorageClass, CopyObjectCommand, type CopyObjectCommandOutput, type CopyObjectCommandInput } from '@aws-sdk/client-s3';
 import { type Region } from '../types';
 import { s3ClientObject } from './ClientMethods';
 
@@ -126,6 +126,32 @@ export async function getObjectAcl (locale: Region, bucket: string, objectKey: s
   }
 }
 
-export async function setObjectAcl (locale: Region, bucket: string): Promise<void> {
-  /// To come ///
+export async function setObjectAcl (locale: Region, bucket: string, objectKey: string, Acl: ObjectCannedACL): Promise<PutObjectAclCommandOutput> {
+  const s3 = s3ClientObject.newClient(locale);
+
+  try {
+    const setAclResult = await s3.send(new PutObjectAclCommand({ Bucket: bucket, Key: objectKey, ACL: Acl }));
+    return setAclResult;
+  } catch (err: any) {
+    return err;
+  }
+}
+
+export async function updateStorageClass (locale: Region, bucket: string, objectKey: string, newStorageClass: StorageClass): Promise<CopyObjectCommandOutput> {
+  const s3 = s3ClientObject.newClient(locale);
+
+  const copyParams: CopyObjectCommandInput = {
+    Bucket: bucket,
+    CopySource: encodeURIComponent(`${bucket}/${objectKey}`),
+    Key: objectKey,
+    StorageClass: newStorageClass,
+    MetadataDirective: 'COPY'
+  };
+
+  try {
+    const response = await s3.send(new CopyObjectCommand(copyParams));
+    return response;
+  } catch (err: any) {
+    return err;
+  }
 }

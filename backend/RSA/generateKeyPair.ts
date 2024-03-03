@@ -27,7 +27,7 @@ const publicBase64 = toBase64(publicKey);
 
 const encryptedData = publicEncrypt(
   toBuffer(pubEnvKey),
-  Buffer.from('/objects/getObjectAcl')
+  Buffer.from('/objects/updateStorageClass')
 );
 
 const encryptedBase64 = encryptedData.toString('base64');
