@@ -6,7 +6,8 @@
     "extends": [
         "airbnb",
         "airbnb-typescript/base",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:storybook/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -16,6 +17,7 @@
     "plugins": [
         "react"
     ],
+    
     "rules": {
         "react/jsx-filename-extension": [
             1,

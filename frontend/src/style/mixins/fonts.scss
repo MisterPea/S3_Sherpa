@@ -1,0 +1,11 @@
+@mixin regular-text {
+  font-family: "tgn-soft-round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin bold-text {
+  font-family: "tgn-soft-round", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}

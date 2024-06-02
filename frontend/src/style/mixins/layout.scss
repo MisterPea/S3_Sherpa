@@ -1,0 +1,28 @@
+$mobile-vert: 600px;
+$tablet-begin: 767px;
+// $tablet: 985px;
+$tablet: 1100px;
+$desktop: 1024px;
+
+@mixin hi-dpi-mobile {
+  @media only screen and (min-resolution: 192dpi) and (max-width: 767px) and (max-device-width: 767px) {
+    @content;
+  }
+}
+@mixin smallPhone {
+  @media only screen and (device-pixel-ratio: 3) and (max-width: 391px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 800px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}

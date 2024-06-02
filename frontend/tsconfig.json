@@ -28,7 +28,8 @@
     "src",
     "./webpack.config.js",
     "src/App.tsx",
-    "src/index.tsx"
+    "src/index.tsx",
+    "src/**/*"
   ], // Include TypeScript files for compilation
   "exclude": [
     "node_modules",

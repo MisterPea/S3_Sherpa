@@ -1,0 +1,48 @@
+@import "../style/mixins/fonts.scss";
+
+.main-button {
+  @include regular-text;
+  cursor: pointer;
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.54px;
+  padding: 9px 24px 11px;
+  border-radius: 25px;
+  border: none;
+  background: none;
+  &.content-width {
+    max-width: fit-content;
+  }
+  &.full-width {
+    width: 100%;
+  }
+  &.primary {
+    background-color: var(--dark-1);
+    color: var(--white);
+    border: 1px solid var(--dark-1);
+  }
+  &.secondary {
+    background-color: var(--white);
+    color: var(--dark-1);
+    border: 1px solid var(--dark-1);
+    svg path {
+      fill: var(--dark-1);
+    }
+  }
+  &.destructive {
+    background-color: var(--destructive);
+    color: var(--white);
+    border: 1px solid var(--destructive);
+  }
+  .plus_icon-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+    height: 15px;
+    width: 15px;
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
