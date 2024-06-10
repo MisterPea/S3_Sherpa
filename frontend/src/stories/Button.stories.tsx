@@ -25,6 +25,38 @@ export const Primary: Story = {
     label: 'Create Bucket',
     type: 'primary',
     width: 'content',
-    plusIcon: false,
+    plusIcon: true,
+    uploadCloud: false,
   },
+};
+
+export const Upload: Story = {
+  args: {
+    label: 'Upload',
+    type: 'primary',
+    width: 'content',
+    plusIcon: false,
+    uploadCloud: true,
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    label: 'Cancel',
+    type: 'secondary',
+    width: 'content',
+    plusIcon: false,
+    uploadCloud: false,
+  },
+};
+
+export const Destructive: Story = {
+  args: {
+    label: 'Delete Bucket',
+    type: 'destructive',
+    width: 'content',
+    plusIcon: false,
+    uploadCloud: false,
+  },
+
 };

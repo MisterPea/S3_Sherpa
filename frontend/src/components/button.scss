@@ -45,4 +45,15 @@
       width: 100%;
     }
   }
+  .upload_icon-wrapper {
+    display: inline-block;
+    margin-right: 10px;
+    height: 20px;
+    width: 25px;
+    svg {
+      transform: translateY(3px) scale(1.25);
+      height: 100%;
+      width: 100%;
+    }
+  }
 }

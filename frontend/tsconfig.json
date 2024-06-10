@@ -21,7 +21,9 @@
     "baseUrl": "src", // Base URL for resolving modules relative to
     "types": [
       "react",
-      "react-dom"
+      "react-dom",
+      "jest",
+      "node"
     ] // Include necessary type definitions
   },
   "include": [
@@ -29,7 +31,7 @@
     "./webpack.config.js",
     "src/App.tsx",
     "src/index.tsx",
-    "src/**/*"
+    "src/**/*",
   ], // Include TypeScript files for compilation
   "exclude": [
     "node_modules",

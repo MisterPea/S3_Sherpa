@@ -1,0 +1,16 @@
+@import "../style/mixins/fonts.scss";
+
+.bucket_num_display {
+  @include regular-text;
+  display: flex;
+  gap: 8px;
+  width: fit-content;
+  p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  svg {
+    height: 100%;
+    width: auto;
+  }
+}

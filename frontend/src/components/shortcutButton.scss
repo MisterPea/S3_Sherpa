@@ -1,0 +1,34 @@
+@import "../style/mixins/fonts.scss";
+
+%circle-dimensions {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.shortcut_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  &-component {
+    &--dark {
+      @extend %circle-dimensions;
+      background-color: var(--dark-1);
+    }
+    &--light {
+      @extend %circle-dimensions;
+      background-color: var(--white);
+    }
+  }
+  p {
+    margin: 5px 0 0;
+    @include bold-text;
+    font-size: 8px;
+    width: 40px;
+    letter-spacing: 3%;
+  }
+}
