@@ -20,3 +20,8 @@ export interface ShortcutButtonProps {
   buttonType: ButtonTypes;
   action: () => void;
 }
+
+export interface CheckCircleProps {
+  checked: boolean;
+  action?: () => void;
+}

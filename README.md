@@ -32,7 +32,7 @@
 * [ ] Side Sheet Radio Button-Plain
 * [ ] Side Sheet Radio Button-JSON Input
 * [ ] Side Sheet Accordion Part
-* [ ] Object Upload Button
+* [x] Object Upload Button
 * [ ] Sort Objects Button
 * [ ] Select Object Button
 * [x] Number of Buckets Display
@@ -41,7 +41,7 @@
 * [x] Object Shortcut Button-Folder From Selection
 * [x] Object Shortcut Button-Storage Class
 * [x] Object Shortcut Button-Download
-* [ ] Object Check Circle
-* [ ] Bucket/Object Context Menu-Button
+* [x] Object Check Circle
+* [x] Bucket/Object Context Menu-Button
 * [ ] Bucket/Object Context Menu-Wrapper
 * [x] Generic Button
