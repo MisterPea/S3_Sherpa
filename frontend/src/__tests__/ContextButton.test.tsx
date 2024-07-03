@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import ContextButton from '../components/ContextButton';
+import ContextButton from '../components/objectBarComponents/ContextButton';
 
 describe('Context Button Component', () => {
   test('renders Context Button - enabled', () => {

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import CheckCircle from '../components/radioBarComponents/CheckCircle';
+import CheckCircle from '../components/objectBarComponents/CheckCircle';
 
 const meta: Meta<typeof CheckCircle> = {
-  title: 'Project/Radio Bar/Check Circle',
+  title: 'Project/Object Bar/Check Circle',
   component: CheckCircle,
 };
 

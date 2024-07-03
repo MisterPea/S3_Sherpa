@@ -16,10 +16,10 @@
 * [ ] Side Sheet Title Block
 * [ ] Side Sheet Link Copy
 * [ ] Bucket/Object Context Menu
-* [ ] Bucket Card
-* [ ] Object/Folder Card
-* [ ] Search Bar
-* [ ] Site Title Plain
+* [x] Bucket Card (List Item)
+* [x] Object/Folder Card (List Item)
+* [x] Search Bar
+* [x] Site Title Plain
 * [ ] Site Title Bucket Name / Region
 * [ ] Breadcrumb Navigation
 * [ ] Object Shortcut Buttons

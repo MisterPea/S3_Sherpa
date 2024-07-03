@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import UploadButton from '../components/UploadButton';
+import UploadButton from '../components/objectBarComponents/UploadButton';
 
 const meta: Meta<typeof UploadButton> = {
   title: 'Project/Object Bar/Upload Button',

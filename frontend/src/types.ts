@@ -23,5 +23,15 @@ export interface ShortcutButtonProps {
 
 export interface CheckCircleProps {
   checked: boolean;
-  action?: () => void;
+}
+
+export interface ListObjectProps {
+  label: string;
+  isSelected?: boolean;
+  menuDisabled: boolean;
+  storageClass?: string; // this needs to be updated to the actual classes
+  // if it's the final list item in a series, we add a bottom line
+  isFinal?: boolean;
+  mainAction: () => void;
+  secondaryAction: () => void;
 }

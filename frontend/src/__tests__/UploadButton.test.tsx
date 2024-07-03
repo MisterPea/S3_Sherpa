@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import UploadButton from '../components/UploadButton';
+import UploadButton from '../components/objectBarComponents/UploadButton';
 
 describe('Upload Button Component', () => {
   test('renders Upload Button - enabled', () => {

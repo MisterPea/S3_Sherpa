@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ContextButton from '../components/ContextButton';
+import ContextButton from '../components/objectBarComponents/ContextButton';
 
 const meta: Meta<typeof ContextButton> = {
   title: 'Project/Object Bar/Context Button',
