@@ -1,12 +1,12 @@
 import * as React from 'react';
-import Svg from './Svg';
+import Svg from '../Svg';
 
-interface UploadButtonProps {
+interface ContextButtonProps {
   disabled: boolean;
   action: () => void;
 }
 
-export default function UploadButton({ action, disabled = false }: UploadButtonProps) {
+export default function ContextButton({ action, disabled = false }: ContextButtonProps) {
   function handleAction() {
     if (action && disabled === false) {
       action();
@@ -15,16 +15,16 @@ export default function UploadButton({ action, disabled = false }: UploadButtonP
 
   return (
     <button
-      className="upload_button"
-      data-testid="upload-button"
+      className="context_button_ellipsis"
+      data-testid="context-button-ellipsis"
       type="button"
       tabIndex={0}
       onClick={handleAction}
-      aria-label="upload-button"
+      aria-label="context-ellipsis-button"
       aria-disabled={disabled}
       disabled={disabled}
     >
-      <Svg.UploadCloud />
+      <Svg.Ellipsis />
     </button>
   );
 }

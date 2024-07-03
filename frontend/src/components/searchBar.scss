@@ -1,0 +1,77 @@
+@import "../style/mixins/fonts.scss";
+
+.search {
+  position: absolute;
+  border: 1px solid #25252540;
+  font-size: 13px;
+  height: 40px;
+  width: 90px;
+  border-radius: 40px;
+  padding: 0 10px;
+  @include regular-text;
+  transition: width 1000ms var(--ease-out-expo);
+
+  cursor: pointer;
+}
+
+.search-wrap {
+  position: relative;
+  height: 40px;
+  width: fit-content;
+  .search-placeholder {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 50%;
+    width: 90px;
+    transform: translateY(-50%);
+    margin: 0;
+    opacity: 1;
+    transition:
+      opacity 500ms var(--ease-out-expo),
+      transform 1000ms var(--ease-out-expo);
+    &-inner {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    &-icon {
+      height: 20px;
+      width: 20px;
+    }
+    p {
+      color: var(--dark-2);
+      @include bold-text;
+      font-size: 11px;
+    }
+    svg {
+      stroke: var(--dark-1);
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.search-wrap.focused {
+  .search {
+    cursor: text;
+    border-color: var(--dark-1);
+    width: 190px;
+    outline: none;
+  }
+  .search-placeholder {
+    opacity: 0;
+    transform: translate(100px, -50%);
+  }
+  input {
+    &::-webkit-input-placeholder {
+      display: block;
+      width: 100%;
+    }
+    &:focus::-webkit-input-placeholder {
+      opacity: 1;
+    }
+  }
+}

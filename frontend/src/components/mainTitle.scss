@@ -1,0 +1,27 @@
+@import "../style/mixins/fonts.scss";
+
+.main_title {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  &-svg {
+    height: 35px;
+    width: 35px;
+    svg {
+      opacity: 0.8;
+    }
+  }
+  &-text {
+    @include bold-text;
+    font-size: 22px;
+    color:var(--teal-1);
+    margin-top:5px;
+    margin-left:3px;
+    margin-right:0;
+    margin-bottom:0;
+    span {
+      margin-left: 3px;
+      color:var(--dark-1);
+    }
+  }
+}
