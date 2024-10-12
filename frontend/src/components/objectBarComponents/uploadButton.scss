@@ -1,0 +1,19 @@
+.upload_button {
+  height: auto;
+  width: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  opacity: 1;
+  border-radius: 50%;
+  &:disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+  svg {
+    height: 100%;
+    width: 100%;
+    stroke:var(--dark-2);
+  }
+}

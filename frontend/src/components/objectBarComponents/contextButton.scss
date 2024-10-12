@@ -1,0 +1,24 @@
+.context_button_ellipsis {
+  height: 100%;
+  width: 100%;
+  max-width: 40px;
+  max-height: 40px;
+  
+  background: none;
+  border: 1px solid var(--dark-2);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  opacity: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  &:disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+  svg {
+    height: 80%;
+    width: 80%;
+  }
+}

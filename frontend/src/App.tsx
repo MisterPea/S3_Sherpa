@@ -1,10 +1,12 @@
 import * as React from 'react';
 import './style/main.scss';
+import { Route, Routes } from 'react-router-dom';
+import BucketView from './components/mainPages/BucketView';
 
 export default function App() {
   return (
-    <div>
-      <h1>Hello, World</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<BucketView />} />
+    </Routes>
   );
 }

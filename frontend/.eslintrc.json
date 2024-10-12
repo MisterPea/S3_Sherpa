@@ -17,8 +17,9 @@
     "plugins": [
         "react"
     ],
-    
     "rules": {
+        "no-trailing-spaces": "off",
+        "padded-blocks": "off",
         "react/jsx-filename-extension": [
             1,
             {
