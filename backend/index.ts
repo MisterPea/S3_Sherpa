@@ -1,21 +1,24 @@
 import express, { type Express } from 'express';
 import dotenv from 'dotenv';
-import { type KeyLike, type RsaPublicKey, privateDecrypt } from 'crypto';
+import { type KeyLike, type RsaPublicKey, privateDecrypt, constants } from 'crypto';
 import objectRoutes from './src/routes/objectRoutes';
 import bucketRoutes from './src/routes/bucketRoutes';
+import NodeRSA, { type Key } from 'node-rsa';
+import cors from 'cors';
+
 // import { type ErrorResponse } from './src/types';
 // import { ErrorHandler } from './src/types';
 // import { getBucketList } from './src/controllers/BucketMethods';
 
 dotenv.config();
 const app: Express = express();
+app.use(cors());
+
 const port = process.env.PORT;
 
-const convertBase64toBuffer = (base64: string): RsaPublicKey | KeyLike => Buffer.from(base64, 'base64').toString('ascii');
-
-const getPrivateRsa = (): any => {
+const getPrivateRsa = (): Key | undefined => {
   if (process.env.RSA_PRIVATE !== undefined) {
-    return convertBase64toBuffer(process.env.RSA_PRIVATE);
+    return Buffer.from(process.env.RSA_PRIVATE, 'base64').toString('utf-8');
   } else {
     console.warn('PRIVATE_RSA not defined');
     return undefined;
@@ -33,19 +36,18 @@ const getPrivateRsa = (): any => {
  * @returns {boolean} is a valid call
  */
 const isValidApiCall = (xApiData: string, message: string): boolean => {
-  const encryptedData = Buffer.from(xApiData, 'base64');
-  const rsaPrivate = getPrivateRsa();
-  try {
-    if (rsaPrivate !== undefined) {
-      const decryptedData = privateDecrypt(
-        rsaPrivate,
-        encryptedData
-      );
-      return decryptedData.toString('utf-8') === message;
+  const privateKeyPem = getPrivateRsa();
+  if (privateKeyPem !== undefined) {
+    try {
+      const key = new NodeRSA(privateKeyPem, 'pkcs1', { encryptionScheme: 'pkcs1', environment: 'browser' });
+      const encryptedData = Buffer.from(xApiData, 'base64');
+      const decryptedData = key.decrypt(encryptedData, 'base64');
+      const decryptedMessage = Buffer.from(decryptedData, 'base64').toString('utf-8');
+      return decryptedMessage === message;
+    } catch (_) {
+      // Nothing to catch - errors indicate issue with key
+      return false;
     }
-  } catch (_) {
-    // No reason to catch errors, any failures mean a tampered key
-    return false;
   }
   return false;
 };

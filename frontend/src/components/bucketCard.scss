@@ -1,0 +1,126 @@
+@import "../style/mixins/fonts.scss";
+
+.bucket_card {
+  display: flex;
+  // width: 100%;
+  // min-width: 380px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--off-white);
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(37, 37, 37, 0.2);
+  opacity: 1;
+  transition: opacity 400ms var(--ease-out-expo);
+  position: relative;
+  &.not-active {
+    opacity: 0.4;
+  }
+  &-main_button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:disabled {
+      cursor: default;
+    }
+  }
+  h2,
+  p {
+    text-align: left;
+    margin: 0;
+    text-wrap: nowrap;
+    @include regular-text;
+    font-size: 13px;
+    color: var(--dark-2);
+  }
+  h2 {
+    @include bold-text;
+    font-size: 17px;
+    color: var(--dark-1);
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  &-context_button {
+    flex-shrink: 0;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+  }
+}
+.bucket_card-lower_area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  .bucket_public_text {
+    font-size: 10px;
+    @include bold-text;
+    line-height: 10px;
+    color: var(--dark-1);
+    letter-spacing: 0.15px;
+  }
+  &-is_public-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  &-is_public-inner_wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  &-svg_wrap {
+    height: 15px;
+    width: 15px;
+  }
+}
+
+.bucket_card-modal {
+  position: absolute;
+  top: 105%;
+  right: 15px;
+  opacity: 0;
+  visibility: hidden;
+  &.modal-open {
+    animation: showModal 500ms ease forwards;
+  }
+  &.modal-closed {
+    animation: hideModal 500ms ease forwards;
+  }
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  1% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes hideModal {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

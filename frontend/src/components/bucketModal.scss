@@ -1,0 +1,67 @@
+@import "../style/mixins/fonts.scss";
+
+.bucket_modal {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  box-shadow: var(--box-shadow-1);
+  border-radius: 10px;
+  &-button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background: var(--off-white);
+    cursor: pointer;
+    border-bottom: 1px solid var(--dark-accent);
+    
+    &:first-child {
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+    &:last-child {
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border: none;
+      background-color: var(--dark-1);
+      &.not_deletable {
+        background-color: var(--dark-3);
+        cursor: default;
+        svg path {
+          fill: var(--dark-1);
+          opacity: 0.3;
+        }
+      }
+      p {
+        color: var(--off-white);
+        &.not_deletable {
+          color: var(--dark-1);
+          opacity: 0.3;
+        }
+      }
+      svg path {
+        fill: var(--off-white);
+      }
+    }
+  }
+  &-svg_wrap {
+    width: 40px;
+    height: 30px;
+    padding: 4px 0;
+    padding-left: 5px;
+    svg {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &-text {
+    padding-right: 15px;
+    padding-left: 5px;
+    font-size: 13px;
+    @include bold-text;
+    margin: 0;
+    color: var(--dark-2);
+    letter-spacing: 0.25px;
+  }
+}

@@ -46,7 +46,7 @@ export default function ShortcutButton({ buttonType, action }: ShortcutButtonPro
       <div className={`shortcut_btn-component--${buttonType === 'delete' ? 'dark' : 'light'}`}>
         {Component}
       </div>
-      <p className="shortcut_button-label">{label}</p>
+      {label && <p className="shortcut_button-label">{label}</p>}
     </button>
   );
 }
